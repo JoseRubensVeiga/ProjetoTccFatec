@@ -1,0 +1,21 @@
+.auth-container {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.bg-auth {
+  background-image: url(/assets/images/backgrounds/bg-login.jpg);
+  background-size: cover;
+  flex: 1;
+}
+
+.auth-content {
+  width: 400px;
+  padding-right: 40px;
+  padding-left: 40px;
+  box-shadow: -10px 0px 17px 0px #00000029;
+  height: 100%;
+}

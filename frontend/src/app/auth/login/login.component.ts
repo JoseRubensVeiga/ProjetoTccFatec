@@ -1,9 +1,10 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { AuthService } from './../auth.service';
 import { NavbarComponent } from './../../shared/navbar/navbar.component';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,15 @@ import { NavbarComponent } from './../../shared/navbar/navbar.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   formGroup: FormGroup;
+  showErrorContainer: boolean;
+  showErrorAlert: boolean;
+  errorMessage: string;
+
+  isLoading: boolean;
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,6 +28,13 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.redirectIfLogged();
+
+    this.showErrorAlert = false;
+    this.showErrorContainer = false;
+
+    authService.errorEmitter.subscribe((response: {message: string}) => {
+      this.onShowErrorAlert(response.message);
+    });
   }
 
   ngOnInit() {
@@ -29,13 +45,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    
     const formData = this.formGroup.getRawValue();
+
+    this.isLoading = true;
 
     this.authService.login(formData);
   }
-
-  
 
   isLogged(): boolean {
     const access_token = localStorage.getItem('access_token');
@@ -47,4 +62,23 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
     }
   }
+
+  onShowErrorAlert(message: string): void {
+    this.showErrorContainer = true;
+    this.errorMessage = message;
+
+    timer(300).subscribe(() => {
+      this.showErrorAlert = true;
+    });
+  }
+
+  hideErrorAlert(): void {
+    this.showErrorAlert = false;
+
+    timer(300).subscribe(() => {
+      this.showErrorContainer = false;
+      this.errorMessage = "";
+    });
+  }
+
 }

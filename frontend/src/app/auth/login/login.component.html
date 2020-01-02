@@ -1,20 +1,31 @@
-<div class="row justify-content-center pt-5">
-  <div class="col-md-6 jumbotron pt-0 bg-dark text-white">
-    <div class="text-center">
-      <h1 class="display-4">Login</h1>
-    </div>
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="text" class="form-control" formControlName="email">
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" class="form-control" formControlName="password">
-      </div>
-      <div class="btn-container d-flex justify-content-between">
-        <button type="submit" class="btn btn-info px-4">Entrar</button>
-      </div>
-    </form>
-  </div>
+<div class="logo-container">
+  Binho<b>System</b><span class="copyright-logo">&copy;</span>
 </div>
+<h1 class="display-4 mb-3">Login</h1>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input type="text" class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" formControlName="password">
+  </div>
+  <div class="btn-container">
+    <a class="reset-password-text" [routerLink]="['./../password-recovery']" routerLinkActive="router-link-active">
+      Esqueci minha senha
+    </a>
+    <button type="submit" class="btn btn-info px-4">
+      Entrar
+    </button>
+    <span class="text-right mt-2" >Ainda não possui conta? <a [routerLink]="['./../register']" routerLinkActive="router-link-active">Inscrever-se</a></span>
+  </div>
+</form>
+<ng-container *ngIf="showErrorContainer">
+  <div class="alert alert-danger mt-4 alert-dismissible" role="alert" [class.hidden]="!showErrorAlert">
+    {{ errorMessage }}
+    <button type="button" class="close" (click)="hideErrorAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-container>

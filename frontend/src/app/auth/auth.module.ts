@@ -9,10 +9,16 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 //Personal Components
 import { LoginComponent } from './login/login.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { AuthComponent } from './auth/auth.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    PasswordRecoveryComponent,
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

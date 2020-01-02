@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { API_URL } from './../../environments/environment';
@@ -13,7 +13,8 @@ const url = API_URL + "/auth";
 })
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject<boolean>(this.hasAccessToken());
+  loggedIn = new BehaviorSubject<boolean>(this.hasAccessToken());
+  errorEmitter = new EventEmitter();
 
   constructor(
     private http: HttpClient,
@@ -24,14 +25,29 @@ export class AuthService {
     this.http.post<any>(`${url}/login`, formData).subscribe((response: any) => {
       this.setLoggedIn(response);
       this.router.navigate(['/home']);
-    }, (error: any) => {
-      console.error(error);
+    }, (httpErrorResponse: HttpErrorResponse) => {
+      const error = httpErrorResponse.error;
+      const errorMessage = error.message;
+
+      if(errorMessage == "Unauthorized") {
+        this.errorEmitter.emit({
+          message: "Login e/ou senha incorretos"
+        });
+      }
     })
   }
 
   logout(): Observable<any> {
     this.setLoggedOut();
     return this.http.post<any>(`${url}/logout`, {});
+  }
+
+  register(formData: any): Observable<any> {
+    return this.http.post<any>(`${url}/register`, formData);
+  }
+
+  recovery(email: string): Observable<any> {
+    return this.http.post<any>(`${url}/forgot-password`, {email: email});
   }
 
   refresh(): void {
@@ -70,7 +86,7 @@ export class AuthService {
     localStorage.removeItem("access_token");
     localStorage.removeItem('token_type');
     this.loggedIn.next(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
   get isLoggedIn() {

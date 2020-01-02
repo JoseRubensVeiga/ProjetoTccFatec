@@ -1,13 +1,24 @@
+import { RegisterComponent } from './register/register.component';
+import { AuthComponent } from './auth/auth.component';
 //Angular Modules
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 //Personal Components
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './../guards/auth.guard';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 
 const authRoutes: Routes = [
-    {path: 'login', component: LoginComponent}
+    {
+      path: 'auth', component: AuthComponent, children: [
+        {path: 'login', component: LoginComponent},
+        {path: 'register', component: RegisterComponent},
+        {path: 'password-recovery', component: PasswordRecoveryComponent}
+      ]
+    },
+    {
+      path: '', component: AuthComponent
+    }
 ];
 
 @NgModule({
