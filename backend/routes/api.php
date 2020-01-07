@@ -10,11 +10,3 @@ Route::group(['middleware' => 'api'], function () {
         Route::post('register', 'AuthController@register');
     });
 });
-
-
-
-Route::get('/test', function() {
-    return json_encode([
-        "message" => "teste realizado com sucesso!"
-    ]);
-});

@@ -1,3 +1,5 @@
+import { AuthService } from './auth/auth.service';
+import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +10,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'blog';
 
-  constructor() { }
+  isLoggedIn: Observable<boolean>;
+
+  constructor(
+    private authService: AuthService
+  ) { }
+
+  ngOnInit() {
+    this.isLoggedIn = this.authService.isLoggedIn;
+  }
 }
