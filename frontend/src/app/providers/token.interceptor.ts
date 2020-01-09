@@ -7,12 +7,19 @@ import { AuthService } from './../auth/auth.service';
 @Injectable()
 
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(public auth: AuthService) {}
+
+  tokenType: string;
+  accessToken: string;
+
+  constructor(private auth: AuthService) {
+    this.tokenType = this.auth.getTokenType();
+    this.accessToken = this.auth.getToken();
+  }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
     request = request.clone({
       setHeaders: {
-        Authorization: `${this.auth.getTokenType()} ${this.auth.getToken()}`
+        Authorization: `${this.tokenType} ${this.accessToken}`
       }
     });
     return next.handle(request);
