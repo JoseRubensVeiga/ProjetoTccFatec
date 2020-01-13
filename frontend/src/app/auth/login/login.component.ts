@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
-      email: ['jose@email.com'],
+      email: ['jose@email.com22'],
       password: ['jose123']
     });
   }
