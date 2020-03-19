@@ -1,0 +1,49 @@
+<mat-drawer-container [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    <div class="sidenav-container">
+      <div class="top-options">
+        <div>
+          <button mat-button [matMenuTriggerFor]="settingsMenu">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <mat-menu #settingsMenu="matMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+          </mat-menu>
+        </div>
+        <button mat-button (click)="drawer.toggle()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <div class="user-info">
+        <div class="image-container">
+          <img
+            class="img-user"
+            src="https://pbs.twimg.com/profile_images/883458234685587456/KtCFjlD4.jpg"
+          />
+        </div>
+        <span class="user-name">John Doe</span>
+        <span class="user-email">johnd@domain.com</span>
+      </div>
+      <div>
+        <ng-container *ngFor="let group of menuGroups">
+          <span class="section-menu-title">{{ group.title }}</span>
+          <div class="section-menu-group">
+            <ng-container *ngFor="let item of group.items">
+              <button
+                mat-button
+                class="section-menu-item"
+                [class.active]="item.active"
+                (click)="onItemClick(item)"
+              >
+                <mat-icon>{{ item.icon }}</mat-icon>
+                <span>{{ item.label }}</span>
+              </button>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </mat-drawer>
+  <ng-content select="[content]"></ng-content>
+</mat-drawer-container>

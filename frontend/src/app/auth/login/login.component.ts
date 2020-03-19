@@ -1,26 +1,23 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder } from "@angular/forms";
 
-import { AuthService } from './../auth.service';
-import { NavbarComponent } from './../../shared/navbar/navbar.component';
-import { timer } from 'rxjs';
+import { AuthService } from "./../auth.service";
+import { NavbarComponent } from "./../../common/navbar/navbar.component";
+import { timer } from "rxjs";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-
   formGroup: FormGroup;
   showErrorContainer: boolean;
   showErrorAlert: boolean;
   errorMessage: string;
 
   isLoading: boolean;
-
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,15 +29,15 @@ export class LoginComponent implements OnInit {
     this.showErrorAlert = false;
     this.showErrorContainer = false;
 
-    authService.errorEmitter.subscribe((response: {message: string}) => {
+    authService.errorEmitter.subscribe((response: { message: string }) => {
       this.onShowErrorAlert(response.message);
     });
   }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
-      email: ['jose@email.com22'],
-      password: ['jose123']
+      email: ["jose@email.com22"],
+      password: ["jose123"]
     });
   }
 
@@ -53,13 +50,13 @@ export class LoginComponent implements OnInit {
   }
 
   isLogged(): boolean {
-    const access_token = localStorage.getItem('access_token');
+    const access_token = localStorage.getItem("access_token");
     return !!access_token;
   }
 
   redirectIfLogged() {
-    if(this.isLogged()) {
-      this.router.navigate(['/home']);
+    if (this.isLogged()) {
+      this.router.navigate(["/home"]);
     }
   }
 
@@ -80,5 +77,4 @@ export class LoginComponent implements OnInit {
       this.errorMessage = "";
     });
   }
-
 }

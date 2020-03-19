@@ -1,0 +1,50 @@
+.navbar-container {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 14px #656565;
+  background-color: #fff;
+  padding: 0 20px;
+
+  mat-icon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.notification-container {
+  cursor: pointer;
+  .notification-badge {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-left: 10px;
+    margin-top: -5px;
+  }
+}
+
+.img-logo {
+  width: 150px;
+  margin-right: 20px;
+}
+
+.logo-container {
+  font-size: 2rem;
+}
+.copyright-logo {
+  vertical-align: top;
+  font-size: 1rem;
+  margin-right: 15px;
+}

@@ -1,22 +1,21 @@
 // Angular modules
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // Angular Material Modules
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
 
 //Personal Modules
-import { AuthRoutingModule } from './auth-routing.module';
+import { AuthRoutingModule } from "./auth-routing.module";
 
 //Personal Components
-import { LoginComponent } from './login/login.component';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
-import { AuthComponent } from './auth/auth.component';
-import { RegisterComponent } from './register/register.component';
-import { NavbarComponent } from './../shared/navbar/navbar.component';
-
+import { LoginComponent } from "./login/login.component";
+import { PasswordRecoveryComponent } from "./password-recovery/password-recovery.component";
+import { AuthComponent } from "./auth/auth.component";
+import { RegisterComponent } from "./register/register.component";
+import { NavbarComponent } from "./../common/navbar/navbar.component";
 
 @NgModule({
   declarations: [
@@ -31,10 +30,8 @@ import { NavbarComponent } from './../shared/navbar/navbar.component';
     ReactiveFormsModule,
     AuthRoutingModule,
     MatInputModule,
-    MatButtonModule,
+    MatButtonModule
   ],
-  providers: [
-    NavbarComponent
-  ]
+  providers: [NavbarComponent]
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -1,1 +1,50 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, sint. Reprehenderit assumenda expedita harum temporibus alias, laborum vel placeat repellendus, voluptate inventore asperiores. Porro iste, culpa impedit eum vero quibusdam.
+<div class="container-fluid p-4">
+  <div class="row pb-4">
+    <div class="col-12"></div>
+    <div class="mt-4 mt-lg-0 col-md-6 col-lg-3">
+      <app-mini-card title="Faltas" value="20"></app-mini-card>
+    </div>
+    <div class="mt-4 mt-lg-0 col-md-6 col-lg-3">
+      <app-mini-card title="Média" value="9,5"></app-mini-card>
+    </div>
+    <div class="mt-4 mt-lg-0 col-md-6 col-lg-3">
+      <app-mini-card title="Faltas Restantes" value="30"></app-mini-card>
+    </div>
+    <div class="mt-4 mt-lg-0 col-md-6 col-lg-3">
+      <app-mini-card title="Próximo Trabalho" value="15/03"></app-mini-card>
+    </div>
+  </div>
+  <div class="row pb-4">
+    <div class="mt-4 col-lg-6">
+      <div class="card">
+        <span class="main-title">Seu Histórico de Notas</span>
+        <canvas
+          baseChart
+          width="500"
+          height="250"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins"
+        ></canvas>
+      </div>
+    </div>
+    <div class="mt-4 col-lg-6">
+      <div class="card">
+        <app-list
+          title="Horário de Hoje"
+          [columns]="['startHour', 'endHour', 'subject', 'teacher']"
+          [columnsDisplayed]="[
+            'Hora de Início',
+            'Hora de Término',
+            'Matéria',
+            'Professor'
+          ]"
+        ></app-list>
+      </div>
+    </div>
+  </div>
+</div>

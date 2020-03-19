@@ -1,22 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 !important;
+}
 
 *:not(code) {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+.w-25 {
+  width: 25%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-75 {
+  width: 75%;
+}
+.w-100 {
+  width: 100%;
+}
 
-.w-25 { width: 25%; }
-.w-50 { width: 50%; }
-.w-75 { width: 75%; }
-.w-100 { width: 100%; }
-
-.text-right { text-align: right; }
-.text-left { text-align: left; }
-.text-center { text-align: center; }
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
 
 .row.buttons-right {
   display: flex;
@@ -24,60 +49,198 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-wrap: wrap;
 }
 
-.w-25 { width: 25%; }
-.w-50 { width: 50%; }
-.w-100 { width: 100%; }
+.w-25 {
+  width: 25%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-100 {
+  width: 100%;
+}
 
-.h-25 { height: 25%; }
-.h-50 { height: 50%; }
-.h-100 { height: 100%; }
+.h-25 {
+  height: 25%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-100 {
+  height: 100%;
+}
 
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-.text-center { text-align: center; }
-.text-justify { text-align: justify; }
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
 
-.d-flex { display: flex; }
-.d-none { display: none; }
-.d-block { display: block; }
-.d-grid { display: grid; }
-.d-inline { display: inline; }
-.d-inline-flex { display: inline-flex; }
-.d-inline-block { display: inline-block; }
-.d-inline-grid { display: inline-grid; }
+.text-dark {
+  color: #000;
+}
 
-.flex-row { flex-direction: row; }
-.flex-column { flex-direction: column; }
+.text-white {
+  color: #fff;
+}
 
-.justify-content-between { justify-content: space-between; }
-.justify-content-around { justify-content: space-around; }
-.justify-content-center { justify-content: center; }
+.d-flex {
+  display: flex;
+}
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-grid {
+  display: grid;
+}
+.d-inline {
+  display: inline;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
+.d-inline-block {
+  display: inline-block;
+}
+.d-inline-grid {
+  display: inline-grid;
+}
 
-.align-items-center { align-items: center;}
-.align-items-flex-end { align-items: flex-end;}
-.align-items-flex-start { align-items: flex-start;}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
 
-.border-none { border: none; }
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-center {
+  justify-content: center;
+}
 
-.font-weight-bold { font-weight: bold; }
-.font-weight-normal { font-weight: normal; }
+.align-items-center {
+  align-items: center;
+}
+.align-items-end {
+  align-items: end;
+}
+.align-items-start {
+  align-items: start;
+}
+.align-items-flex-end {
+  align-items: flex-end;
+}
+.align-items-flex-start {
+  align-items: flex-start;
+}
+
+.border-none {
+  border: none;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+.font-weight-normal {
+  font-weight: normal;
+}
 
 /**
  * margins - paddings like Bootstrap
  */
- @each $p, $a in (margin: m, padding: p) {
+@each $p, $a in (margin: m, padding: p) {
   @for $i from 0 through 5 {
-      .#{$a}-#{$i}, .#{$a}t-#{$i} { #{$p}-top: #{$i * 5}px !important;}
-      .#{$a}-#{$i}, .#{$a}r-#{$i} { #{$p}-right: #{$i * 5}px !important; }
-      .#{$a}-#{$i}, .#{$a}b-#{$i} { #{$p}-bottom: #{$i * 5}px !important; }
-      .#{$a}-#{$i}, .#{$a}l-#{$i} { #{$p}-left: #{$i * 5}px !important; }
-      .#{$a}y-#{$i} { #{$p}-top: #{$i * 5}px !important; #{$p}-bottom: #{$i * 5}px !important; }
-      .#{$a}x-#{$i} { #{$p}-left: #{$i * 5}px !important; #{$p}-right: #{$i * 5}px !important; }
+    .#{$a}-#{$i},
+    .#{$a}t-#{$i} {
+      #{$p}-top: #{$i * 5}px !important;
+    }
+    .#{$a}-#{$i},
+    .#{$a}r-#{$i} {
+      #{$p}-right: #{$i * 5}px !important;
+    }
+    .#{$a}-#{$i},
+    .#{$a}b-#{$i} {
+      #{$p}-bottom: #{$i * 5}px !important;
+    }
+    .#{$a}-#{$i},
+    .#{$a}l-#{$i} {
+      #{$p}-left: #{$i * 5}px !important;
+    }
+    .#{$a}y-#{$i} {
+      #{$p}-top: #{$i * 5}px !important;
+      #{$p}-bottom: #{$i * 5}px !important;
+    }
+    .#{$a}x-#{$i} {
+      #{$p}-left: #{$i * 5}px !important;
+      #{$p}-right: #{$i * 5}px !important;
+    }
   }
-  .#{$a}-auto, .#{$a}t-auto { #{$p}-top: auto !important; }
-  .#{$a}-auto, .#{$a}r-auto { #{$p}-right: auto !important; }
-  .#{$a}-auto, .#{$a}b-auto { #{$p}-bottom: auto !important; }
-  .#{$a}-auto, .#{$a}l-auto { #{$p}-left: auto !important; }
-  .#{$a}y-auto { #{$p}-top: auto !important; #{$p}-bottom: auto !important; }
-  .#{$a}x-auto { #{$p}-left: auto !important; #{$p}-right: auto !important; }
+  .#{$a}-auto,
+  .#{$a}t-auto {
+    #{$p}-top: auto !important;
+  }
+  .#{$a}-auto,
+  .#{$a}r-auto {
+    #{$p}-right: auto !important;
+  }
+  .#{$a}-auto,
+  .#{$a}b-auto {
+    #{$p}-bottom: auto !important;
+  }
+  .#{$a}-auto,
+  .#{$a}l-auto {
+    #{$p}-left: auto !important;
+  }
+  .#{$a}y-auto {
+    #{$p}-top: auto !important;
+    #{$p}-bottom: auto !important;
+  }
+  .#{$a}x-auto {
+    #{$p}-left: auto !important;
+    #{$p}-right: auto !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+.bg-main {
+  background-color: lightseagreen !important;
+}
+
+.main-title {
+  display: block;
+  color: lightseagreen;
+  font-weight: bold;
+  margin: 0;
+  font-weight: normal;
+  font-size: 2rem;
 }
