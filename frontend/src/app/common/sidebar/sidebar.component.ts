@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
+import { filter } from "rxjs/operators";
 
 @Component({
   selector: "app-sidebar",
@@ -15,11 +17,13 @@ export class SidebarComponent implements OnInit {
         {
           icon: "view_compact",
           label: "Painel",
-          active: true
+          url: "/home",
+          active: false
         },
         {
           icon: "book",
           label: "Notas e faltas",
+          url: "/score",
           active: false
         },
         {
@@ -66,21 +70,45 @@ export class SidebarComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initActivatedItem();
+  }
 
   onItemClick(item: any) {
+    this.activeItem(item);
+    this.toggleSidebar();
+    this.router.navigate([`${item.url}`]);
+  }
+
+  toggleSidebar() {
+    this.drawer.toggle();
+  }
+
+  activeItem(item: any) {
     this.menuGroups.forEach(group => {
       group.items.forEach(item => {
         item.active = false;
       });
     });
     item.active = true;
-    this.toggleSidebar();
   }
 
-  toggleSidebar() {
-    this.drawer.toggle();
+  initActivatedItem() {
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(val => {
+        let route = this.router.url;
+        const uri = route.split("/")[1];
+
+        this.menuGroups.forEach(group => {
+          group.items.forEach(item => {
+            if (item.url === `/${uri}`) {
+              this.activeItem(item);
+            }
+          });
+        });
+      });
   }
 }

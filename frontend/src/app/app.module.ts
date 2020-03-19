@@ -13,7 +13,6 @@ import { MatButtonModule } from "@angular/material/button";
 import { AppRoutingModule } from "./app-routing.module";
 import { AuthModule } from "./auth/auth.module";
 import { HomeModule } from "./pages/home/home.module";
-import { ProductsModule } from "./pages/products/products.module";
 import { SharedModule } from "./shared/shared.module";
 
 import { CommonComponentsModule } from "./common/common.module";
@@ -38,7 +37,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     // Personal Modules
     AuthModule,
     HomeModule,
-    ProductsModule,
     CommonComponentsModule,
     SharedModule
   ],

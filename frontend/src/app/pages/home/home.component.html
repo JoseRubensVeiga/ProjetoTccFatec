@@ -15,13 +15,27 @@
     </div>
   </div>
   <div class="row pb-4">
-    <div class="mt-4 col-lg-6">
+    <div class="mt-4 col-lg-8">
+      <div class="card">
+        <app-list
+          title="Horário de Hoje"
+          [columns]="['startHour', 'endHour', 'subject', 'teacher']"
+          [columnsDisplayed]="[
+            'Hora de Início',
+            'Hora de Término',
+            'Matéria',
+            'Professor'
+          ]"
+        ></app-list>
+      </div>
+    </div>
+    <div class="mt-4 col-lg-4">
       <div class="card">
         <span class="main-title">Seu Histórico de Notas</span>
         <canvas
           baseChart
-          width="500"
-          height="250"
+          width="200"
+          height="100"
           [datasets]="lineChartData"
           [labels]="lineChartLabels"
           [options]="lineChartOptions"
@@ -34,16 +48,13 @@
     </div>
     <div class="mt-4 col-lg-6">
       <div class="card">
-        <app-list
-          title="Horário de Hoje"
-          [columns]="['startHour', 'endHour', 'subject', 'teacher']"
-          [columnsDisplayed]="[
-            'Hora de Início',
-            'Hora de Término',
-            'Matéria',
-            'Professor'
-          ]"
-        ></app-list>
+        <app-events-calendar></app-events-calendar>
+      </div>
+    </div>
+    <div class="mt-4 col-lg-6">
+      <div class="card">
+        <span class="main-title">Tarefas</span>
+        <app-todo-list></app-todo-list>
       </div>
     </div>
   </div>

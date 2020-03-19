@@ -10,62 +10,45 @@ import * as pluginAnnotations from "chartjs-plugin-annotation";
 })
 export class HomeComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: "Series A" }
+    { data: [7, 6, 9, 8, 7, 9], label: "Notas" }
   ];
   public lineChartLabels: Label[] = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July"
+    "Semestre 01",
+    "Semestre 02",
+    "Semestre 03",
+    "Semestre 04",
+    "Semestre 05",
+    "Semestre 06"
   ];
   public lineChartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
+    legend: {
+      display: false
+    },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
       yAxes: [
         {
           id: "y-axis-0",
-          position: "left"
-        },
-        {
-          id: "y-axis-1",
-          position: "right",
-          gridLines: {
-            color: "rgba(255,0,0,0.3)"
-          },
+          position: "left",
           ticks: {
-            fontColor: "red"
+            min: 0,
+            max: 10,
+            stepSize: 1
           }
         }
       ]
     },
     annotation: {
-      annotations: [
-        {
-          type: "line",
-          mode: "vertical",
-          scaleID: "x-axis-0",
-          value: "March",
-          borderColor: "orange",
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: "orange",
-            content: "LineAnno"
-          }
-        }
-      ]
+      annotations: []
     }
   };
   public lineChartColors: Color[] = [
     {
       // red
-      backgroundColor: "rgba(255,0,0,0.3)",
-      borderColor: "red",
+      backgroundColor: "rgba(32,178,170,0.3)",
+      borderColor: "lightseagreen",
       pointBackgroundColor: "rgba(148,159,177,1)",
       pointBorderColor: "#fff",
       pointHoverBackgroundColor: "#fff",

@@ -8,9 +8,10 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { FooterComponent } from "./footer/footer.component";
 
 @NgModule({
-  declarations: [NavbarComponent, SidebarComponent],
+  declarations: [NavbarComponent, SidebarComponent, FooterComponent],
   imports: [
     CommonModule,
     MatSidenavModule,
@@ -18,6 +19,6 @@ import { MatIconModule } from "@angular/material/icon";
     MatButtonModule,
     MatIconModule
   ],
-  exports: [NavbarComponent, SidebarComponent]
+  exports: [NavbarComponent, SidebarComponent, FooterComponent]
 })
 export class CommonComponentsModule {}

@@ -1,27 +1,26 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { AuthService } from './../auth.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from "./../auth.service";
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.scss"]
 })
 export class RegisterComponent implements OnInit {
-
   formGroup: FormGroup;
+  registerSubscription: Subscription;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
-
     this.formGroup = this.formBuilder.group({
       name: [null],
       email: [null],
@@ -31,7 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigate(['./../login'], {
+    this.router.navigate(["./../login"], {
       relativeTo: this.activatedRoute
     });
   }
@@ -39,14 +38,17 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     const formData = this.formGroup.getRawValue();
 
-    this
-      .authService
-      .register(formData)
-      .subscribe((response: any) => {
+    this.registerSubscription = this.authService.register(formData).subscribe(
+      (response: any) => {
         console.log(response);
-      }, (httpErrorResponse: any) => {
+      },
+      (httpErrorResponse: any) => {
         console.error(httpErrorResponse);
-      });
+      }
+    );
   }
 
+  ngOnDestroy() {
+    this.registerSubscription.unsubscribe();
+  }
 }

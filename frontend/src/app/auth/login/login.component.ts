@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 
 import { AuthService } from "./../auth.service";
 import { NavbarComponent } from "./../../common/navbar/navbar.component";
-import { timer } from "rxjs";
+import { timer, Subscription } from "rxjs";
 
 @Component({
   selector: "app-login",
@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   showErrorContainer: boolean;
   showErrorAlert: boolean;
   errorMessage: string;
-
   isLoading: boolean;
+  errorAlertSubscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
     this.showErrorAlert = false;
     this.showErrorContainer = false;
 
-    authService.errorEmitter.subscribe((response: { message: string }) => {
-      this.onShowErrorAlert(response.message);
-    });
+    this.errorAlertSubscription = authService.errorEmitter.subscribe(
+      (response: { message: string }) => {
+        this.onShowErrorAlert(response.message);
+      }
+    );
   }
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class LoginComponent implements OnInit {
       email: ["jose@email.com22"],
       password: ["jose123"]
     });
+  }
+
+  ngOnDestroy() {
+    this.errorAlertSubscription.unsubscribe();
   }
 
   onSubmit() {
