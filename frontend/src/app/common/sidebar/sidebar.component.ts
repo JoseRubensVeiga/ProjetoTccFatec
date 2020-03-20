@@ -12,6 +12,35 @@ export class SidebarComponent implements OnInit {
 
   menuGroups = [
     {
+      title: "Professor",
+      items: [
+        {
+          icon: "done",
+          label: "Lançar notas",
+          url: "/register-scores",
+          active: false
+        },
+        {
+          icon: "access_alarm",
+          label: "Registrar horários",
+          url: "/register-schedules",
+          active: false
+        },
+        {
+          icon: "notifications",
+          label: "Enviar avisos",
+          url: "/send-notifications",
+          active: false
+        },
+        {
+          icon: "save",
+          label: "Cadastrar Alunos",
+          url: "/register-students",
+          active: false
+        }
+      ]
+    },
+    {
       title: "Aluno",
       items: [
         {
@@ -36,36 +65,6 @@ export class SidebarComponent implements OnInit {
           icon: "notifications",
           label: "Avisos",
           url: "/notifications",
-          active: false
-        }
-      ]
-    },
-    {
-      title: "Professor",
-      items: [
-        {
-          icon: "view_compact",
-          label: "Painel",
-          active: false
-        },
-        {
-          icon: "done",
-          label: "Lançar notas",
-          active: false
-        },
-        {
-          icon: "access_alarm",
-          label: "Configurar horários",
-          active: false
-        },
-        {
-          icon: "notifications",
-          label: "Enviar avisos",
-          active: false
-        },
-        {
-          icon: "save",
-          label: "Cadastrar Alunos",
           active: false
         }
       ]

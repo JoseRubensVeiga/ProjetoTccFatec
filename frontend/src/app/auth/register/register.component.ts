@@ -2,7 +2,6 @@ import { AuthService } from "./../auth.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-register",
@@ -11,7 +10,6 @@ import { Subscription } from "rxjs";
 })
 export class RegisterComponent implements OnInit {
   formGroup: FormGroup;
-  registerSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -37,8 +35,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     const formData = this.formGroup.getRawValue();
-
-    this.registerSubscription = this.authService.register(formData).subscribe(
+    this.authService.register(formData).subscribe(
       (response: any) => {
         console.log(response);
       },
@@ -46,9 +43,5 @@ export class RegisterComponent implements OnInit {
         console.error(httpErrorResponse);
       }
     );
-  }
-
-  ngOnDestroy() {
-    this.registerSubscription.unsubscribe();
   }
 }

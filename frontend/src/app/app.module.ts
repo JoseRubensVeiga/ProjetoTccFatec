@@ -24,7 +24,12 @@ import { CommonComponentsModule } from "./common/common.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ScheduleModule } from "./pages/schedule/schedule.module";
-
+import { UserSettingsModule } from "./pages/user-settings/user-settings.module";
+import { SettingsModule } from "./pages/settings/settings.module";
+import { RegisterScoresModule } from "./pages/register-scores/register-scores.module";
+import { RegisterSchedulesModule } from "./pages/register-schedules/register-schedules.module";
+import { SendNotificationsModule } from "./pages/send-notifications/send-notifications.module";
+import { RegisterStudentsModule } from "./pages/register-students/register-students.module";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -44,6 +49,12 @@ import { ScheduleModule } from "./pages/schedule/schedule.module";
     MyScoreModule,
     ScheduleModule,
     NotificationsModule,
+    UserSettingsModule,
+    SettingsModule,
+    RegisterScoresModule,
+    RegisterSchedulesModule,
+    SendNotificationsModule,
+    RegisterStudentsModule,
 
     CommonComponentsModule,
     SharedModule

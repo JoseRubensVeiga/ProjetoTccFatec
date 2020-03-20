@@ -1,7 +1,6 @@
 import { AuthService } from "./../auth.service";
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-password-recovery",
@@ -10,7 +9,6 @@ import { Subscription } from "rxjs";
 })
 export class PasswordRecoveryComponent implements OnInit {
   email: string;
-  recoveryEmailSubscription: Subscription;
 
   constructor(
     private authService: AuthService,
@@ -32,19 +30,13 @@ export class PasswordRecoveryComponent implements OnInit {
   }
 
   onSubmit() {
-    this.recoveryEmailSubscription = this.authService
-      .recovery(this.email)
-      .subscribe(
-        response => {
-          console.log({ response });
-        },
-        error => {
-          console.log({ error });
-        }
-      );
-  }
-
-  ngOnDestroy() {
-    this.recoveryEmailSubscription.unsubscribe();
+    this.authService.recovery(this.email).subscribe(
+      response => {
+        console.log({ response });
+      },
+      error => {
+        console.log({ error });
+      }
+    );
   }
 }
