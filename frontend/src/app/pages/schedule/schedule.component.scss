@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #999;
+  }
+
+  thead {
+    tr th {
+      background-color: #333;
+      color: #eee;
+      font-weight: normal;
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n) td {
+      background-color: #f1f1f1;
+    }
+  }
+}

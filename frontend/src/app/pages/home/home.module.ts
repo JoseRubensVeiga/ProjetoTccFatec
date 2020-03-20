@@ -13,15 +13,13 @@ import { ChartsModule } from "ng2-charts";
 import { EventsCalendarComponent } from "./events-calendar/events-calendar.component";
 import { TodoListComponent } from "./todo-list/todo-list.component";
 import { MatButtonModule } from "@angular/material/button";
-import { MyScoreComponent } from './my-score/my-score.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     MiniCardComponent,
     EventsCalendarComponent,
-    TodoListComponent,
-    MyScoreComponent
+    TodoListComponent
   ],
   imports: [
     CommonModule,

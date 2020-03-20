@@ -1,0 +1,11 @@
+.card-semester {
+  &.active {
+    cursor: pointer;
+  }
+  &:not(.active) {
+    background-color: #ff000045;
+    h1.main-title {
+      color: white !important;
+    }
+  }
+}

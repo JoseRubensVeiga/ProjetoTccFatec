@@ -29,11 +29,13 @@ export class SidebarComponent implements OnInit {
         {
           icon: "access_alarm",
           label: "Horário",
+          url: "/schedule",
           active: false
         },
         {
           icon: "notifications",
           label: "Avisos",
+          url: "/notifications",
           active: false
         }
       ]

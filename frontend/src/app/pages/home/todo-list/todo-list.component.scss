@@ -6,7 +6,7 @@
   vertical-align: top;
 }
 
-.example-list {
+.todo-list {
   border: solid 1px #ccc;
   min-height: 60px;
   background: white;
@@ -27,6 +27,17 @@
   cursor: move;
   background: white;
   font-size: 14px;
+
+  mat-icon {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .cdk-drag-preview {
@@ -48,6 +59,10 @@
   border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.todo-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.todo-title {
+  margin-bottom: 20px;
 }

@@ -1,48 +1,50 @@
 <div class="d-flex justify-content-between">
   <div class="flex-grow-1">
-    <h2>To do</h2>
+    <h2 class="todo-title">Para fazer</h2>
     <div
       cdkDropList
       #todoList="cdkDropList"
       [cdkDropListData]="todo"
       [cdkDropListConnectedTo]="[doneList, doingList]"
-      class="example-list"
+      class="todo-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div class="example-box" *ngFor="let item of todo" cdkDrag>
         {{ item }}
+        <mat-icon (click)="onDelete('todo', item)">close</mat-icon>
       </div>
     </div>
   </div>
   <div class="flex-grow-1 px-3">
-    <h2>Doing</h2>
+    <h2 class="todo-title">Fazendo</h2>
     <div
       cdkDropList
       #doingList="cdkDropList"
       [cdkDropListData]="doing"
       [cdkDropListConnectedTo]="[todoList, doneList]"
-      class="example-list"
+      class="todo-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div class="example-box" *ngFor="let item of doing" cdkDrag>
         {{ item }}
+        <mat-icon (click)="onDelete('doing', item)">close</mat-icon>
       </div>
     </div>
   </div>
 
   <div class="flex-grow-1">
-    <h2>Done</h2>
-
+    <h2 class="todo-title">Feito</h2>
     <div
       cdkDropList
       #doneList="cdkDropList"
       [cdkDropListData]="done"
       [cdkDropListConnectedTo]="[todoList, doingList]"
-      class="example-list"
+      class="todo-list"
       (cdkDropListDropped)="drop($event)"
     >
       <div class="example-box" *ngFor="let item of done" cdkDrag>
         {{ item }}
+        <mat-icon (click)="onDelete('done', item)">close</mat-icon>
       </div>
     </div>
   </div>

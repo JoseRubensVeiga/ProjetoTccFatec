@@ -12,14 +12,18 @@ import { MatButtonModule } from "@angular/material/button";
 // Personal Modules
 import { AppRoutingModule } from "./app-routing.module";
 import { AuthModule } from "./auth/auth.module";
-import { HomeModule } from "./pages/home/home.module";
-import { SharedModule } from "./shared/shared.module";
 
+import { HomeModule } from "./pages/home/home.module";
+import { MyScoreModule } from "./pages/my-score/my-score.module";
+import { NotificationsModule } from "./pages/notifications/notifications.module";
+
+import { SharedModule } from "./shared/shared.module";
 import { CommonComponentsModule } from "./common/common.module";
 
 // Personal Components
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ScheduleModule } from "./pages/schedule/schedule.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +41,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     // Personal Modules
     AuthModule,
     HomeModule,
+    MyScoreModule,
+    ScheduleModule,
+    NotificationsModule,
+
     CommonComponentsModule,
     SharedModule
   ],
