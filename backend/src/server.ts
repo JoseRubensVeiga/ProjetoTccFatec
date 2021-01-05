@@ -1,9 +1,15 @@
 import express from 'express';
+import cors from 'cors';
 
+require('dotenv').config();
+
+import authRoutes from './auth/routes';
 const server = express();
 
-server.get('/', (req, res) => {
-  return res.json({ message: 'HELLO WORLD' });
-});
+server.use(express.json());
+server.use(cors());
+server.use(authRoutes);
 
-server.listen(3333);
+server.listen(3333, () => {
+  console.log('Server listening on port 3333! =D');
+});
