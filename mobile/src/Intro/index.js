@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {SafeAreaView, ScrollView, View, Dimensions} from 'react-native';
+import {SafeAreaView, ScrollView, View, Dimensions, Text} from 'react-native';
 
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   SkipText,
   DotStepsContainer,
   DotStep,
+  LoginButton,
 } from './styles';
 import intro_bg from '../assets/images/intro_bg.jpg';
 
@@ -47,7 +48,7 @@ const Intro = ({navigation}) => {
               setSliderPage(e);
             }}>
             <View style={{width, height}}>
-              <TitleIntroText>BEM VINDO AO DECODE</TitleIntroText>
+              <TitleIntroText>BEM VINDO À DECODE</TitleIntroText>
               <ContentIntroText>
                 Somos uma plataforma de cursos on-line voltada para a área de
                 programação. Navegue pelos cursos e conheça novas técnicas e
@@ -55,19 +56,19 @@ const Intro = ({navigation}) => {
               </ContentIntroText>
             </View>
             <View style={{width, height}}>
-              <TitleIntroText>BEM VINDO AO DECODE</TitleIntroText>
+              <TitleIntroText>APRENDA ONDE QUISER</TitleIntroText>
               <ContentIntroText>
-                Somos uma plataforma de cursos on-line voltada para a área de
-                programação. Navegue pelos cursos e conheça novas técnicas e
-                linguagens. Aprenda e compartilhe seu conhecimento!
+                Com nossas funcionalidades, você como aluno, pode enviar trechos
+                do seu código para ser avaliado, provas on-line com toda
+                comodidade do Dcode, e muito mais!
               </ContentIntroText>
             </View>
             <View style={{width}}>
-              <TitleIntroText>BEM VINDO AO DECODE</TitleIntroText>
+              <TitleIntroText>ENSINE COM QUALIDADE</TitleIntroText>
               <ContentIntroText>
-                Somos uma plataforma de cursos on-line voltada para a área de
-                programação. Navegue pelos cursos e conheça novas técnicas e
-                linguagens. Aprenda e compartilhe seu conhecimento!
+                Para você que é (ou deseja ser) professor, nossa plataforma
+                consegue englobar toda as nossas ferramentas que o ajudarão a
+                trazer a melhor experiência para seus alunos!
               </ContentIntroText>
             </View>
           </ScrollView>
@@ -77,9 +78,15 @@ const Intro = ({navigation}) => {
             ))}
           </DotStepsContainer>
           <SkipTextContainer>
-            <SkipText onPress={() => navigation.navigate('Details')}>
-              Pular
-            </SkipText>
+            {pageIndex !== 2 ? (
+              <SkipText onPress={() => navigation.navigate('Login')}>
+                Pular
+              </SkipText>
+            ) : (
+              <LoginButton onPress={() => navigation.navigate('Login')}>
+                <Text style={{color: 'white'}}>Entrar</Text>
+              </LoginButton>
+            )}
           </SkipTextContainer>
         </Container>
       </SafeAreaView>

@@ -13,24 +13,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Intro from '../Intro';
+import Login from '../Login';
 
 const {Screen, Navigator} = createStackNavigator();
-
-function DetailsScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Details Screen</Text>
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-    </View>
-  );
-}
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="Intro">
+      <Navigator initialRouteName="Login">
         <Screen name="Intro" component={Intro} options={{headerShown: false}} />
-        <Screen name="Details" component={DetailsScreen} />
+        <Screen name="Login" component={Login} options={{headerShown: false}} />
       </Navigator>
     </NavigationContainer>
   );

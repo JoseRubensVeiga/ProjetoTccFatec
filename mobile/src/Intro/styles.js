@@ -50,3 +50,14 @@ export const DotStep = styled.View`
   margin-left: 10px;
   background-color: ${(p) => (p.active === true ? '#2E8173' : '#FFF')};
 `;
+
+export const LoginButton = styled.TouchableOpacity`
+  width: 70px;
+  height: 35px;
+
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+
+  background-color: darkgreen;
+`;
