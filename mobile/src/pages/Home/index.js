@@ -3,7 +3,7 @@ import {ScrollView} from 'react-native';
 
 import {Container, ChipsContainer, Chip} from './styles';
 
-import Header from '../@components/Header';
+import Header from '../../@components/Header';
 
 const Home = () => {
   return (

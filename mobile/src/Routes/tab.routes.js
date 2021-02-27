@@ -4,7 +4,11 @@ import {Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Home from '../Home';
+import Home from '../pages/Home';
+import Search from '../pages/Search';
+import Courses from '../pages/Courses';
+import Favorites from '../pages/Favorites';
+import Profile from '../pages/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -52,10 +56,10 @@ const TabRoutes = () => (
       style: {height: 70},
     }}>
     <Tab.Screen name="Início" component={Home} />
-    <Tab.Screen name="Pesquisar" component={Home} />
-    <Tab.Screen name="Cursos" component={Home} />
-    <Tab.Screen name="Lista" component={Home} />
-    <Tab.Screen name="Conta" component={Home} />
+    <Tab.Screen name="Pesquisar" component={Search} />
+    <Tab.Screen name="Cursos" component={Courses} />
+    <Tab.Screen name="Lista" component={Favorites} />
+    <Tab.Screen name="Conta" component={Profile} />
   </Tab.Navigator>
 );
 
