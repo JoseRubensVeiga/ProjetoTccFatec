@@ -3,8 +3,10 @@ import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Link} from '@react-navigation/native';
 
-export const KeyboardAvoidingView = styled.KeyboardAvoidingView`
+export const Container = styled.View`
   flex: 1;
+
+  background-color: #fff;
 `;
 
 export const LogoImgContainer = styled.View`
@@ -44,7 +46,7 @@ export const InputsContainer = styled.View`
 export const InputsContainerPassword = styled.View`
   padding-left: 60px;
   padding-right: 60px;
-  padding-top: 30px;
+  padding-top: 10px;
   flex-direction: row;
 `;
 
@@ -59,6 +61,7 @@ export const InputIcon = styled(Icon)`
   justify-content: center;
   align-items: center;
   padding-top: 15px;
+  width: 27px;
 `;
 
 export const InputField = styled.TextInput`
@@ -77,14 +80,6 @@ export const LoginButton = styled.TouchableOpacity`
   border-radius: 40px;
   margin: 0 auto;
   margin-top: 25px;
-`;
-
-export const ForgotPasswordText = styled.Text`
-  text-align: right;
-  text-decoration: underline;
-  margin-right: 60px;
-  margin-top: 15px;
-  color: #696969;
 `;
 
 export const LoginButtonText = styled.Text`

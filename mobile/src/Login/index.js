@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
+  KeyboardAvoidingView,
   Container,
   LogoImgContainer,
   LogoImg,
@@ -9,14 +10,31 @@ import {
   LoginText,
   Line,
   InputsContainer,
+  InputsContainerPassword,
+  InputField,
+  InputIcon,
+  ForgotPasswordText,
+  LoginButton,
+  LoginButtonText,
+  RegisterSection,
+  RegisterText,
+  RegisterTextLink,
 } from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import logoImg from '../assets/images/logo.png';
 import loginVectorImg from '../assets/images/login_vector.png';
 
-const Login = () => {
+const Login = ({navigation}) => {
+  const [secureTextEntry, setSecureTextEntry] = useState(false);
+  function handleEyeTap() {
+    setSecureTextEntry(!secureTextEntry);
+  }
+
+  function handleLoginButton() {
+    navigation.navigate('Home');
+  }
+
   return (
-    <Container>
+    <KeyboardAvoidingView behavior="position">
       <LogoImgContainer>
         <LogoImg source={logoImg} />
       </LogoImgContainer>
@@ -25,10 +43,33 @@ const Login = () => {
       </ImgVectorContainer>
       <LoginText>Entrar</LoginText>
       <InputsContainer>
-        <Icon name="home" size={18} color="#999" />
-        <Line />
+        <InputIcon name="envelope" size={24} color="#2eae99" />
+        <InputField placeholder="Seu e-mail" />
+        <InputIcon name="check-circle" size={24} color="#2eae99" />
       </InputsContainer>
-    </Container>
+      <Line />
+      <InputsContainerPassword>
+        <InputIcon name="unlock-alt" size={24} color="#2eae99" />
+        <InputField secureTextEntry={secureTextEntry} placeholder="Sua senha" />
+        <InputIcon
+          name={secureTextEntry ? 'eye-slash' : 'eye'}
+          size={24}
+          color="#2eae99"
+          onPress={handleEyeTap}
+        />
+      </InputsContainerPassword>
+      <Line />
+      <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+
+      <LoginButton>
+        <LoginButtonText onPress={handleLoginButton}>ENTRAR</LoginButtonText>
+      </LoginButton>
+
+      <RegisterSection>
+        <RegisterText>Não é registrado?</RegisterText>
+        <RegisterTextLink to="/Register">Inscrever-se</RegisterTextLink>
+      </RegisterSection>
+    </KeyboardAvoidingView>
   );
 };
 
