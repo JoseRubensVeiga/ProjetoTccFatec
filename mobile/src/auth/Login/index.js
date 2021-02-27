@@ -24,15 +24,22 @@ import logoImg from '../../assets/images/logo.png';
 import loginVectorImg from '../../assets/images/login_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
+import {validateEmail} from '../../@utils/validators';
 
 const Login = ({navigation}) => {
-  const [secureTextEntry, setSecureTextEntry] = useState(false);
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+
   function handleEyeTap() {
     setSecureTextEntry(!secureTextEntry);
   }
 
   function handleLoginButton() {
     navigation.navigate('Home');
+  }
+
+  function handleEmailChange(emailText) {
+    setIsEmailValid(validateEmail(emailText));
   }
 
   return (
@@ -46,8 +53,15 @@ const Login = ({navigation}) => {
       <LoginText>Entrar</LoginText>
       <InputsContainer>
         <InputIcon name="envelope" size={24} color="#2eae99" />
-        <InputField placeholder="Seu e-mail" />
-        <InputIcon name="check-circle" size={24} color="#2eae99" />
+        <InputField
+          placeholder="Seu e-mail"
+          onChangeText={(e) => handleEmailChange(e)}
+        />
+        <InputIcon
+          name="check-circle"
+          size={24}
+          color={isEmailValid ? '#2eae99' : '#BBBBBB'}
+        />
       </InputsContainer>
       <Line />
       <InputsContainerPassword>

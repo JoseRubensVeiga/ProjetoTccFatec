@@ -23,7 +23,11 @@ import registerVectorImg from '../../assets/images/register_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
 
-const Register = () => {
+const Register = ({navigation}) => {
+  function handleSendEmail() {
+    navigation.navigate('RecoveryPassword');
+  }
+
   return (
     <ViewContainer>
       <LogoImgContainer>
@@ -40,7 +44,9 @@ const Register = () => {
       <Line />
 
       <LoginButton>
-        <LoginButtonText>ENVIAR E-MAIL</LoginButtonText>
+        <LoginButtonText onPress={handleSendEmail}>
+          ENVIAR E-MAIL
+        </LoginButtonText>
       </LoginButton>
 
       <InstructionsText>

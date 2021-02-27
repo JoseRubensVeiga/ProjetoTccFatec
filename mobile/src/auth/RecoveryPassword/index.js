@@ -22,7 +22,11 @@ import registerVectorImg from '../../assets/images/register_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
 
-const Register = () => {
+const Register = ({navigation}) => {
+  function handleSendEmail() {
+    navigation.navigate('Login');
+  }
+
   return (
     <ViewContainer>
       <LogoImgContainer>
@@ -46,7 +50,9 @@ const Register = () => {
       <Line />
 
       <LoginButton>
-        <LoginButtonText>SALVAR NOVA SENHA</LoginButtonText>
+        <LoginButtonText onPress={handleSendEmail}>
+          SALVAR NOVA SENHA
+        </LoginButtonText>
       </LoginButton>
 
       <RegisterSection>
