@@ -3,10 +3,6 @@ import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Link} from '@react-navigation/native';
 
-export const KeyboardAvoidingView = styled.KeyboardAvoidingView`
-  flex: 1;
-`;
-
 export const LogoImgContainer = styled.View`
   padding: 20px;
 `;
@@ -79,11 +75,14 @@ export const LoginButton = styled.TouchableOpacity`
   margin-top: 25px;
 `;
 
-export const ForgotPasswordText = styled.Text`
+export const ForgotPasswordLink = styled(Link)`
   text-align: right;
-  text-decoration: underline;
   margin-right: 60px;
   margin-top: 15px;
+`;
+
+export const ForgotPasswordText = styled.Text`
+  text-decoration: underline;
   color: #696969;
 `;
 

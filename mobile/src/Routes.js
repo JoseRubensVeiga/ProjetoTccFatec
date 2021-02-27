@@ -4,8 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Intro from './Intro';
-import Login from './Login';
-import Register from './Register';
+import Login from './auth/Login';
+import Register from './auth/Register';
+import ForgotPassword from './auth/ForgotPassword';
+import RecoveryPassword from './auth/RecoveryPassword';
 import Home from './Home';
 
 const {Screen, Navigator} = createStackNavigator();
@@ -14,17 +16,25 @@ const Routes = () => {
   return (
     <NavigationContainer>
       <Navigator initialRouteName="Login">
-        <Screen name="Intro" component={Intro} options={{headerShown: false}} />
-        <Screen name="Login" component={Login} options={{headerShown: false}} />
-        <Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Screen name="Intro" component={Intro} options={screenOpts} />
+        <Screen name="Login" component={Login} options={screenOpts} />
+        <Screen name="Home" component={Home} options={screenOpts} />
+        <Screen name="Register" component={Register} options={screenOpts} />
         <Screen
-          name="Register"
-          component={Register}
-          options={{headerShown: false}}
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={screenOpts}
+        />
+        <Screen
+          name="RecoveryPassword"
+          component={RecoveryPassword}
+          options={screenOpts}
         />
       </Navigator>
     </NavigationContainer>
   );
 };
+
+const screenOpts = {headerShown: false};
 
 export default Routes;

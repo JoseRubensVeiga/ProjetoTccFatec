@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import {
   KeyboardAvoidingView,
-  Container,
   LogoImgContainer,
   LogoImg,
   ImgVectorContainer,
@@ -13,6 +12,7 @@ import {
   InputsContainerPassword,
   InputField,
   InputIcon,
+  ForgotPasswordLink,
   ForgotPasswordText,
   LoginButton,
   LoginButtonText,
@@ -20,8 +20,10 @@ import {
   RegisterText,
   RegisterTextLink,
 } from './styles';
-import logoImg from '../assets/images/logo.png';
-import loginVectorImg from '../assets/images/login_vector.png';
+import logoImg from '../../assets/images/logo.png';
+import loginVectorImg from '../../assets/images/login_vector.png';
+
+import {ViewContainer} from '../../@utils/ViewContainer';
 
 const Login = ({navigation}) => {
   const [secureTextEntry, setSecureTextEntry] = useState(false);
@@ -34,7 +36,7 @@ const Login = ({navigation}) => {
   }
 
   return (
-    <KeyboardAvoidingView behavior="position">
+    <ViewContainer>
       <LogoImgContainer>
         <LogoImg source={logoImg} />
       </LogoImgContainer>
@@ -59,7 +61,9 @@ const Login = ({navigation}) => {
         />
       </InputsContainerPassword>
       <Line />
-      <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+      <ForgotPasswordLink to="/ForgotPassword">
+        <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+      </ForgotPasswordLink>
 
       <LoginButton>
         <LoginButtonText onPress={handleLoginButton}>ENTRAR</LoginButtonText>
@@ -69,7 +73,7 @@ const Login = ({navigation}) => {
         <RegisterText>Não é registrado?</RegisterText>
         <RegisterTextLink to="/Register">Inscrever-se</RegisterTextLink>
       </RegisterSection>
-    </KeyboardAvoidingView>
+    </ViewContainer>
   );
 };
 

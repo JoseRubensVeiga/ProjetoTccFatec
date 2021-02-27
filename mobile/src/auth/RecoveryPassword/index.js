@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  Container,
   LogoImgContainer,
   LogoImg,
   ImgVectorContainer,
@@ -18,25 +17,21 @@ import {
   RegisterText,
   RegisterTextLink,
 } from './styles';
-import logoImg from '../assets/images/logo.png';
-import registerVectorImg from '../assets/images/register_vector.png';
+import logoImg from '../../assets/images/logo.png';
+import registerVectorImg from '../../assets/images/register_vector.png';
+
+import {ViewContainer} from '../../@utils/ViewContainer';
 
 const Register = () => {
   return (
-    <Container>
+    <ViewContainer>
       <LogoImgContainer>
         <LogoImg source={logoImg} />
       </LogoImgContainer>
       <ImgVectorContainer>
         <ImgVector source={registerVectorImg} />
       </ImgVectorContainer>
-      <LoginText>Registrar</LoginText>
-      <InputsContainer>
-        <InputIcon name="envelope" size={24} color="#2eae99" />
-        <InputField placeholder="Seu e-mail" />
-        <InputIcon name="check-circle" size={24} color="#BBBBBB" />
-      </InputsContainer>
-      <Line />
+      <LoginText>Nova senha</LoginText>
       <InputsContainerPassword>
         <InputIcon name="unlock-alt" size={24} color="#2eae99" />
         <InputField secureTextEntry={true} placeholder="Sua senha" />
@@ -51,14 +46,14 @@ const Register = () => {
       <Line />
 
       <LoginButton>
-        <LoginButtonText>REGISTRAR</LoginButtonText>
+        <LoginButtonText>SALVAR NOVA SENHA</LoginButtonText>
       </LoginButton>
 
       <RegisterSection>
         <RegisterText>Já é registrado?</RegisterText>
         <RegisterTextLink to="/Login">Entrar</RegisterTextLink>
       </RegisterSection>
-    </Container>
+    </ViewContainer>
   );
 };
 
