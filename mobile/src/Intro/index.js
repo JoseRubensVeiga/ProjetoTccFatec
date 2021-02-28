@@ -48,7 +48,7 @@ const Intro = ({navigation}) => {
               setSliderPage(e);
             }}>
             <View style={{width, height}}>
-              <TitleIntroText>BEM VINDO À DECODE</TitleIntroText>
+              <TitleIntroText>BEM VINDO À DCODE</TitleIntroText>
               <ContentIntroText>
                 Somos uma plataforma de cursos on-line voltada para a área de
                 programação. Navegue pelos cursos e conheça novas técnicas e
