@@ -1,11 +1,13 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
-
 import {Container, ChipsContainer, Chip} from './styles';
 
 import Header from '../../@components/Header';
+import VideoPlayer from '../../@components/VideoPlayer';
 
 const Home = () => {
+  let player;
+
   return (
     <>
       <Header />
@@ -29,7 +31,9 @@ const Home = () => {
           <Chip>Express</Chip>
         </ScrollView>
       </ChipsContainer>
-      <Container>Teste</Container>
+      <Container>
+        <VideoPlayer />
+      </Container>
     </>
   );
 };

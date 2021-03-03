@@ -17,20 +17,16 @@ const TabRoutes = () => (
     initialRouteName="Login"
     screenOptions={({route}) => ({
       tabBarIcon: ({focused, _, size}) => {
-        let iconName;
-        let color = focused ? '#2EAE99' : '#4B5C6B';
+        const icons = {
+          Início: 'home',
+          Pesquisar: 'search',
+          Cursos: 'play-circle',
+          Lista: 'heart',
+          default: 'user',
+        };
 
-        if (route.name === 'Início') {
-          iconName = 'home';
-        } else if (route.name === 'Pesquisar') {
-          iconName = 'search';
-        } else if (route.name === 'Cursos') {
-          iconName = 'play-circle';
-        } else if (route.name === 'Lista') {
-          iconName = 'heart';
-        } else {
-          iconName = 'user';
-        }
+        const color = focused ? '#2EAE99' : '#4B5C6B';
+        const iconName = icons[route.name] || icons.default;
 
         return <Icon name={iconName} size={size + 5} color={color} />;
       },
