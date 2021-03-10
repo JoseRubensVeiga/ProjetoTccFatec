@@ -22,7 +22,7 @@ const VideoPlayer = () => {
 
   const onPaused = (newState) => {
     setPaused(!paused);
-    setPlayerState(newState);
+    // setPlayerState(newState);
   };
 
   const onReplay = () => {
@@ -78,7 +78,7 @@ const VideoPlayer = () => {
         onReplay={onReplay}
         onSeek={onSeek}
         onSeeking={onSeeking}
-        mainColor={'red'}
+        mainColor={'blue'}
         playerState={playerState}
         sliderStyle={{
           containerStyle: {},
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
   backgroundVideo: {
     height: 250,
     width: '100%',
-    backgroundColor: 'blue',
   },
   mediaControls: {
     height: '100%',
