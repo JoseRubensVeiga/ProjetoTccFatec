@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
 import {Chip as PaperChip} from 'react-native-paper';
 
-export const Container = styled.Text``;
-
 export const ChipsContainer = styled.View`
   padding-top: 5px;
 `;
