@@ -7,3 +7,7 @@
 ## CRIE UM NOVO BANCO DE DADOS COM O NOME
 
 `dcode`
+
+## EXECUTE NO TERMINAL O COMANDO
+
+`yarn typeorm migration:run`
