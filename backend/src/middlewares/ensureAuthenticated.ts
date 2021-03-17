@@ -18,9 +18,9 @@ const ensureAuthenticated: RequestHandler = (request, response, next) => {
     throw new AppError('JWT Token is missing.', 401);
   }
 
-  const [, token] = authHeader.split(' ');
-
   try {
+    const [, token] = authHeader.split(' ');
+
     const decoded = verify(token, authConfig.jwt.secret);
 
     const { sub } = decoded as TokenPayload;

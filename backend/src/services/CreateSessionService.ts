@@ -13,7 +13,7 @@ interface Request {
 }
 
 interface Response {
-  user: User;
+  user: Omit<User, 'password'>;
   token: string;
 }
 
@@ -42,8 +42,10 @@ export default class CreateSessionService {
       expiresIn,
     });
 
+    const { password: _, ...userWithoutPassword } = user;
+
     return {
-      user,
+      user: userWithoutPassword,
       token,
     };
   }
