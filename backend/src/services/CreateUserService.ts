@@ -39,6 +39,7 @@ export default class CreateUserService {
 
     return await usersRepository.findOne({
       where: { id: newUser.id },
+      select: ['id', 'name', 'email', 'avatar'],
     });
   }
 }

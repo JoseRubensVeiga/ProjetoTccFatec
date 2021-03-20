@@ -21,12 +21,13 @@ export default class User {
   password: string;
 
   @Column()
-  avatar: string;
+  avatar?: string;
 
   @Column({
     select: false,
+    nullable: true,
   })
-  recovery_password_code: string;
+  recovery_password_code: string | null;
 
   @CreateDateColumn()
   created_at: Date;
