@@ -1,9 +1,5 @@
 import { Router } from 'express';
 
-import nodemailer from 'nodemailer';
-import { MailOptions } from 'nodemailer/lib/json-transport';
-import emailConfig from '../config/email';
-
 import CreateSessionService from '../services/CreateSessionService';
 import SendRecoveryPasswordEmailService from '../services/SendRecoveryPasswordEmail';
 
@@ -27,7 +23,7 @@ sessionsRouter.post('/recoveryPassword', async (request, response) => {
 
   if (!email) {
     return response.status(400).json({
-      message: 'Please, provide a email address',
+      message: 'Please, provide a valid email address',
     });
   }
 
@@ -36,7 +32,7 @@ sessionsRouter.post('/recoveryPassword', async (request, response) => {
   await sendRecoveryPasswordEmail.execute(email);
 
   return response.json({
-    message: 'email successfully sent',
+    message: 'if there is a user with that email, we sent it successfully',
   });
 });
 

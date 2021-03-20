@@ -23,6 +23,11 @@ export default class User {
   @Column()
   avatar: string;
 
+  @Column({
+    select: false,
+  })
+  recovery_password_code: string;
+
   @CreateDateColumn()
   created_at: Date;
 
