@@ -34,7 +34,7 @@ export default class RecoveryPasswordService {
     const hashedPassword = await hash(request.password, 8);
 
     user.password = hashedPassword;
-    user.recovery_password_code = null;
+    user.recovery_password_code = undefined;
 
     await userRepository.save(user);
   }

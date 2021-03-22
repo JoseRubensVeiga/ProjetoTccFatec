@@ -27,7 +27,7 @@ export default class User {
     select: false,
     nullable: true,
   })
-  recovery_password_code: string | null;
+  recovery_password_code?: string;
 
   @CreateDateColumn()
   created_at: Date;
