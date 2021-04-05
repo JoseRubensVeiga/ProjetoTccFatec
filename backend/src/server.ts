@@ -12,6 +12,6 @@ server.use(cors());
 
 server.get('/', (_, res) => res.json({ ok: true }));
 
-server.listen(3333, () => {
+server.listen(process.env.PORT, () => {
   console.log('Server listening on port 3333! =D');
 });
