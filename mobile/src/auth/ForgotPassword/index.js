@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
-  Container,
   LogoImgContainer,
   LogoImg,
   ImgVectorContainer,
@@ -23,9 +22,12 @@ import registerVectorImg from '../../assets/images/register_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
 
+import authService from '../../services/auth.service';
+
 const Register = ({navigation}) => {
-  function handleSendEmail() {
-    navigation.navigate('RecoveryPassword');
+  const [email, setEmail] = useState('');
+  async function handleSendEmail() {
+    navigation.navigate('RecoveryPasswordCode');
   }
 
   return (
@@ -39,7 +41,10 @@ const Register = ({navigation}) => {
       <LoginText>Esqueci minha senha</LoginText>
       <InputsContainer>
         <InputIcon name="envelope" size={24} color="#2eae99" />
-        <InputField placeholder="Digite o e-mail usado" />
+        <InputField
+          placeholder="Digite o e-mail usado"
+          onChangeText={(e) => setEmail(e)}
+        />
       </InputsContainer>
       <Line />
 

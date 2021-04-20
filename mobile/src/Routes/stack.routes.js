@@ -6,6 +6,7 @@ import Login from '../auth/Login';
 import Register from '../auth/Register';
 import ForgotPassword from '../auth/ForgotPassword';
 import RecoveryPassword from '../auth/RecoveryPassword';
+import RecoveryPasswordCode from '../auth/RecoveryPasswordCode';
 
 import TabRoutes from './tab.routes';
 
@@ -18,6 +19,11 @@ const StackRoutes = () => (
     <Stack.Screen name="Intro" component={Intro} options={screenOpts} />
     <Stack.Screen name="Login" component={Login} options={screenOpts} />
     <Stack.Screen name="Register" component={Register} options={screenOpts} />
+    <Stack.Screen
+      name="RecoveryPasswordCode"
+      component={RecoveryPasswordCode}
+      options={screenOpts}
+    />
     <Stack.Screen
       name="ForgotPassword"
       component={ForgotPassword}
