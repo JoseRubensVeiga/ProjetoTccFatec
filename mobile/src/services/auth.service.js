@@ -5,7 +5,7 @@ class AuthService {
 
   constructor() {
     this.#http = axios.create({
-      baseURL: 'http://localhost:3333',
+      baseURL: 'https://dcode-backend.herokuapp.com',
     });
   }
 
