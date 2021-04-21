@@ -6,7 +6,10 @@ import Header from '../../@components/Header';
 import Callout from '../../@components/Callout';
 import CourseList from '../../@components/CourseList';
 
-const Home = () => {
+const Home = ({navigation}) => {
+  function goToCourse() {
+    navigation.navigate('Course');
+  }
   return (
     <ScrollView>
       <Header />
@@ -30,10 +33,10 @@ const Home = () => {
           <Chip>Express</Chip>
         </ScrollView>
       </ChipsContainer>
-      <CourseList />
+      <CourseList goToCourse={goToCourse} />
       <Callout />
-      <CourseList />
-      <CourseList />
+      <CourseList goToCourse={goToCourse} />
+      <CourseList goToCourse={goToCourse} />
     </ScrollView>
   );
 };

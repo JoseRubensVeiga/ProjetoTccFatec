@@ -21,20 +21,18 @@ export const InputIcon = styled(Icon)`
   width: 27px;
 `;
 
-export const CategoryContainer = styled.ScrollView`
-  padding: 0 30px;
+export const ResultTextContainer = styled.View`
+  margin: 10px 30px 30px;
 `;
-export const CategoryItemContainerButton = styled.TouchableWithoutFeedback`
-  flex-direction: row;
-  align-items: center;
+
+export const ResultText = styled.Text`
+  font-size: 22px;
+  color: #686868;
 `;
-export const CategoryItemContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 20px;
+
+export const TitleText = styled.Text`
+  padding: 30px 30px 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: #686868;
 `;
-export const CategoryIcon = styled(Icon)`
-  font-size: 20px;
-  width: 27px;
-`;
-export const CategoryText = styled.Text``;

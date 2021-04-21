@@ -12,6 +12,11 @@ export const VideoImage = styled.Image`
   height: 160px;
 `;
 
+export const VideoContainerButton = styled.TouchableWithoutFeedback`
+  margin-left: 15px;
+  margin-right: 15px;
+`;
+
 export const VideoContainer = styled.View`
   margin-left: 15px;
   margin-right: 15px;
