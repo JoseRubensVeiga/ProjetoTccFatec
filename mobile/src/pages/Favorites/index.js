@@ -1,12 +1,22 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
 
-import {Container, ChipsContainer, Chip} from './styles';
+import {
+  Container,
+  ChipsContainer,
+  Chip,
+  VideoContainer,
+  VideoImage,
+  VideoTitle,
+  HeartIcon,
+} from './styles';
 import Header from '../../@components/Header';
+
+import image1 from '../../assets/images/videos/video_01.jpg';
 
 const Favorites = () => {
   return (
-    <Container>
+    <ScrollView>
       <Header />
       <ChipsContainer>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -28,7 +38,32 @@ const Favorites = () => {
           <Chip>Express</Chip>
         </ScrollView>
       </ChipsContainer>
-    </Container>
+      <VideoContainer>
+        <VideoImage source={image1} />
+        <VideoTitle>Back-end com .NET Core</VideoTitle>
+        <HeartIcon name="heart" />
+      </VideoContainer>
+      <VideoContainer>
+        <VideoImage source={image1} />
+        <VideoTitle>Back-end com .NET Core</VideoTitle>
+        <HeartIcon name="heart" />
+      </VideoContainer>
+      <VideoContainer>
+        <VideoImage source={image1} />
+        <VideoTitle>Back-end com .NET Core</VideoTitle>
+        <HeartIcon name="heart" />
+      </VideoContainer>
+      <VideoContainer>
+        <VideoImage source={image1} />
+        <VideoTitle>Back-end com .NET Core</VideoTitle>
+        <HeartIcon name="heart" />
+      </VideoContainer>
+      <VideoContainer>
+        <VideoImage source={image1} />
+        <VideoTitle>Back-end com .NET Core</VideoTitle>
+        <HeartIcon name="heart" />
+      </VideoContainer>
+    </ScrollView>
   );
 };
 
