@@ -10,14 +10,20 @@ import {
   CategoryText,
 } from './styles';
 
-import {ViewContainer} from '../../@utils/ViewContainer';
-
-const Search = () => {
+const Search = ({navigation}) => {
+  function handleSearch() {
+    navigation.navigate('SucessoPesquisa');
+  }
   return (
     <View>
       <SearchInputContainer>
         <SearchInput placeholder="Digite o nome do curso..." />
-        <InputIcon name="search" size={24} color="#000" />
+        <InputIcon
+          name="search"
+          size={24}
+          color="#000"
+          onPress={handleSearch}
+        />
       </SearchInputContainer>
 
       <CategoryContainer>

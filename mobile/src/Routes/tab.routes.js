@@ -6,11 +6,21 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Home from '../pages/Home';
 import Search from '../pages/Search';
+import SearchError from '../pages/SearchError';
+import SearchSuccess from '../pages/SearchSuccess';
 import Courses from '../pages/Courses';
 import Favorites from '../pages/Favorites';
 import Profile from '../pages/Profile';
 
 const Tab = createBottomTabNavigator();
+
+const SearchTabRoutes = () => (
+  <Tab.Navigator screenOptions={{tabBarVisible: false}}>
+    <Tab.Screen name="Pesquisar" component={Search} />
+    <Tab.Screen name="ErroPesquisa" component={SearchError} />
+    <Tab.Screen name="SucessoPesquisa" component={SearchSuccess} />
+  </Tab.Navigator>
+);
 
 const TabRoutes = () => (
   <Tab.Navigator
@@ -52,7 +62,7 @@ const TabRoutes = () => (
       style: {height: 70},
     }}>
     <Tab.Screen name="Início" component={Home} />
-    <Tab.Screen name="Pesquisar" component={Search} />
+    <Tab.Screen name="Pesquisar" component={SearchTabRoutes} />
     <Tab.Screen name="Cursos" component={Courses} />
     <Tab.Screen name="Lista" component={Favorites} />
     <Tab.Screen name="Conta" component={Profile} />
