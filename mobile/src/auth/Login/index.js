@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {
   LogoImgContainer,
@@ -24,6 +24,7 @@ import loginVectorImg from '../../assets/images/login_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
 import {validateEmail} from '../../@utils/validators';
+import authService from '../../services/auth.service';
 
 const Login = ({navigation}) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
@@ -40,6 +41,8 @@ const Login = ({navigation}) => {
   function handleEmailChange(emailText) {
     setIsEmailValid(validateEmail(emailText));
   }
+
+  function handlePasswordChange(passwordText) {}
 
   return (
     <ViewContainer>
@@ -65,7 +68,11 @@ const Login = ({navigation}) => {
       <Line />
       <InputsContainerPassword>
         <InputIcon name="unlock-alt" size={24} color="#2eae99" />
-        <InputField secureTextEntry={secureTextEntry} placeholder="Sua senha" />
+        <InputField
+          secureTextEntry={secureTextEntry}
+          placeholder="Sua senha"
+          onChangeText={(e) => handlePasswordChange(e)}
+        />
         <InputIcon
           name={secureTextEntry ? 'eye-slash' : 'eye'}
           size={24}

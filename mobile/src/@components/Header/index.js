@@ -2,11 +2,13 @@ import React from 'react';
 
 import {Container, HeaderTitleText, HeaderText} from './styles';
 
-const Header = () => {
+const Header = ({title, text}) => {
   return (
     <Container>
-      <HeaderTitleText>Bem vindo, Roger</HeaderTitleText>
-      <HeaderText>Aprenda, divirta-se e melhore suas habilidades.</HeaderText>
+      <HeaderTitleText>{title || 'Bem vindo, Roger'}</HeaderTitleText>
+      <HeaderText>
+        {text || 'Aprenda, divirta-se e melhore suas habilidades.'}
+      </HeaderText>
     </Container>
   );
 };

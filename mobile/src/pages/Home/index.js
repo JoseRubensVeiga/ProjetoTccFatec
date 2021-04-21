@@ -1,13 +1,17 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
-
-import {Container, ChipsContainer, Chip} from './styles';
+import {ChipsContainer, Chip} from './styles';
 
 import Header from '../../@components/Header';
+import Callout from '../../@components/Callout';
+import CourseList from '../../@components/CourseList';
 
-const Home = () => {
+const Home = ({navigation}) => {
+  function goToCourse() {
+    navigation.navigate('Course');
+  }
   return (
-    <>
+    <ScrollView>
       <Header />
       <ChipsContainer>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -29,8 +33,11 @@ const Home = () => {
           <Chip>Express</Chip>
         </ScrollView>
       </ChipsContainer>
-      <Container>Teste</Container>
-    </>
+      <CourseList goToCourse={goToCourse} />
+      <Callout />
+      <CourseList goToCourse={goToCourse} />
+      <CourseList goToCourse={goToCourse} />
+    </ScrollView>
   );
 };
 
