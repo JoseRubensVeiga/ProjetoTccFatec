@@ -24,6 +24,10 @@ export const InputIcon = styled(Icon)`
 export const CategoryContainer = styled.ScrollView`
   padding: 0 30px;
 `;
+export const CategoryItemContainerButton = styled.TouchableWithoutFeedback`
+  flex-direction: row;
+  align-items: center;
+`;
 export const CategoryItemContainer = styled.View`
   flex-direction: row;
   align-items: center;
