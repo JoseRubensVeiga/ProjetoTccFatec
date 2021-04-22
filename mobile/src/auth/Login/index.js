@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import {
   LogoImgContainer,
@@ -24,7 +24,6 @@ import loginVectorImg from '../../assets/images/login_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
 import {validateEmail} from '../../@utils/validators';
-import authService from '../../services/auth.service';
 
 const Login = ({navigation}) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);

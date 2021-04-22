@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const screenOpts = {headerShown: false};
 
 const StackRoutes = () => (
-  <Stack.Navigator initialRouteName="Courses">
+  <Stack.Navigator initialRouteName="Login">
     <Stack.Screen name="Home" component={TabRoutes} options={screenOpts} />
     <Stack.Screen name="Intro" component={Intro} options={screenOpts} />
     <Stack.Screen name="Login" component={Login} options={screenOpts} />
