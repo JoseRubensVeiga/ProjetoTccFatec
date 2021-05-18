@@ -23,29 +23,41 @@ import logoImg from '../../assets/images/logo.png';
 import loginVectorImg from '../../assets/images/login_vector.png';
 
 import {ViewContainer} from '../../@utils/ViewContainer';
+import {Alert} from '../../@components/Alert';
+
 import {validateEmail} from '../../@utils/validators';
 import authService from '../../services/auth.service';
 
 const Login = ({navigation}) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [email, setEmail] = useState('jose.rubens.veiga@gmail.com');
+  const [password, setPassword] = useState('123456');
   const [isEmailValid, setIsEmailValid] = useState(false);
 
   function handleEyeTap() {
     setSecureTextEntry(!secureTextEntry);
   }
 
-  function handleLoginButton() {
-    navigation.navigate('Home');
+  async function handleLoginButton() {
+    try {
+      const response = await authService.attempt({email, password});
+      console.log(response);
+      navigation.navigate('Home');
+    } catch (e) {}
   }
 
   function handleEmailChange(emailText) {
     setIsEmailValid(validateEmail(emailText));
+    setEmail(emailText);
   }
 
-  function handlePasswordChange(passwordText) {}
+  function handlePasswordChange(passwordText) {
+    setPassword(passwordText);
+  }
 
   return (
     <ViewContainer>
+      <Alert />
       <LogoImgContainer>
         <LogoImg source={logoImg} />
       </LogoImgContainer>
@@ -57,6 +69,7 @@ const Login = ({navigation}) => {
         <InputIcon name="envelope" size={24} color="#2eae99" />
         <InputField
           placeholder="Seu e-mail"
+          value={email}
           onChangeText={(e) => handleEmailChange(e)}
         />
         <InputIcon
@@ -71,6 +84,7 @@ const Login = ({navigation}) => {
         <InputField
           secureTextEntry={secureTextEntry}
           placeholder="Sua senha"
+          value={password}
           onChangeText={(e) => handlePasswordChange(e)}
         />
         <InputIcon

@@ -2,6 +2,18 @@
   padding-top: 40px;
   margin-bottom: 30px;
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 100%;
+
+    max-width: 150px;
+  }
+
+  img + img {
+    margin-top: 15px;
+  }
 }
 .copyright-logo {
   vertical-align: top;
