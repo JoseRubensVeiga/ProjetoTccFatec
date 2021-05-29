@@ -27,6 +27,12 @@ class AuthService {
 
     return response.data;
   }
+
+  async attempt({email, password}) {
+    const response = await this.#http.post('sessions', {email, password});
+
+    return response.data;
+  }
 }
 
 export default new AuthService();

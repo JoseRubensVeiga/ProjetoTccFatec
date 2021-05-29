@@ -1,49 +1,56 @@
-<div class="logo-container mt-5">
-  My<b>Score</b><span class="copyright-logo">&copy;</span>
+<div class="d-flex flex-column justify-content-center h-100">
+  <div class="logo-container">
+    <img src="../../../assets/images/dcode_simbolo.png" />
+    <img src="../../../assets/images/dcode_tipo.png" />
+  </div>
+  <h1 class="font-weight-normal my-3">Login</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput placeholder="Email" formControlName="email" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </mat-form-field>
+    </div>
+    <div class="btn-container">
+      <a
+        class="reset-password-text"
+        [routerLink]="['./../password-recovery']"
+        routerLinkActive="router-link-active"
+      >
+        Esqueci minha senha
+      </a>
+      <button mat-raised-button color="primary" class="my-2">Entrar</button>
+      <span class="text-right"
+        >Ainda não possui conta?
+        <a
+          [routerLink]="['./../register']"
+          routerLinkActive="router-link-active"
+          >Inscrever-se</a
+        ></span
+      >
+    </div>
+  </form>
+  <ng-container *ngIf="showErrorContainer">
+    <div
+      class="alert alert-danger mt-4 alert-dismissible"
+      role="alert"
+      [class.hidden]="!showErrorAlert"
+    >
+      {{ errorMessage }}
+      <button type="button" class="close" (click)="hideErrorAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </ng-container>
 </div>
-<h1 class="font-weight-normal">Login</h1>
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-  <div>
-    <mat-form-field class="w-100">
-      <input matInput placeholder="Email" formControlName="email" />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field class="w-100">
-      <input
-        matInput
-        type="password"
-        placeholder="Email"
-        formControlName="email"
-      />
-    </mat-form-field>
-  </div>
-  <div class="btn-container">
-    <a
-      class="reset-password-text"
-      [routerLink]="['./../password-recovery']"
-      routerLinkActive="router-link-active"
-    >
-      Esqueci minha senha
-    </a>
-    <button mat-raised-button color="primary" class="my-2">Entrar</button>
-    <span class="text-right"
-      >Ainda não possui conta?
-      <a [routerLink]="['./../register']" routerLinkActive="router-link-active"
-        >Inscrever-se</a
-      ></span
-    >
-  </div>
-</form>
-<ng-container *ngIf="showErrorContainer">
-  <div
-    class="alert alert-danger mt-4 alert-dismissible"
-    role="alert"
-    [class.hidden]="!showErrorAlert"
-  >
-    {{ errorMessage }}
-    <button type="button" class="close" (click)="hideErrorAlert()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</ng-container>
